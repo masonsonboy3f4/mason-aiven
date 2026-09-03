@@ -1,13 +1,13 @@
-<?php
-defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
-/**
- * ------------------------------------------------------------------
- * LavaLust - an opensource lightweight PHP MVC Framework
- * ------------------------------------------------------------------
+<?php 
+defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed'); 
+/** 
+ * ------------------------------------------------------------------ 
+ * LavaLust - an opensource lightweight PHP MVC Framework 
+ * ------------------------------------------------------------------ 
  *
- * MIT License
+ * MIT License 
  *
- * Copyright (c) 2020 Ronald M. Marasigan
+ * Copyright (c) 2020 Ronald M. Marasigan 
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,12 +27,13 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * @package LavaLust
- * @author Ronald M. Marasigan <ronald.marasigan@yahoo.com>
- * @since Version 4
- * @link https://github.com/ronmarasigan/LavaLust
- * @license https://opensource.org/licenses/MIT MIT License
+ * @package LavaLust 
+ * @author Ronald M. Marasigan <ronald.marasigan@yahoo.com> 
+ * @since Version 4 
+ * @link https://github.com/ronmarasigan/LavaLust 
+ * @license https://opensource.org/licenses/MIT MIT License 
  */
+
 /*
 |--------------------------------------------------------------------------
 | Adding of middlewares
@@ -41,4 +42,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 | Used for adding middlewares
 |
 */
-$config['middlewares'] = [];
+
+$config['middlewares'] = [
+    'student' => 'StudentMiddleware'
+];
