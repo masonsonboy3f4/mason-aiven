@@ -12,7 +12,7 @@ class Create_users_table {
 
     public function up()
     {
-        if ($this->_lava->dbforge->table_exists('users')) {
+        if ($this->_lava->dbforge->table_exists('userss')) {
             return;
         }
 
@@ -27,25 +27,13 @@ class Create_users_table {
                 ],
                 'username' => [
                     'type'       => 'VARCHAR',
-                    'constraint' => 100,
+                    'constraint' => 50,
                     'null'       => FALSE,
-                ],
-                'email' => [
-                    'type'       => 'VARCHAR',
-                    'constraint' => 255,
-                    'null'       => FALSE,
-                    'unique'     => TRUE,
                 ],
                 'password' => [
                     'type'       => 'VARCHAR',
                     'constraint' => 255,
                     'null'       => FALSE,
-                ],
-                'role' => [
-                    'type'       => 'ENUM',
-                    'constraint' => "'admin','moderator','user'",
-                    'null'       => FALSE,
-                    'default'    => 'user',
                 ],
                 'is_active' => [
                     'type'       => 'TINYINT',
@@ -55,25 +43,18 @@ class Create_users_table {
                     'default'    => 1,
                 ],
                 'created_at' => [
-                    'type'    => 'DATETIME',
-                    'null'    => FALSE,
-                    'default' => 'CURRENT_TIMESTAMP',
-                ],
-                'updated_at' => [
-                    'type'    => 'DATETIME',
+                    'type'    => 'TIMESTAMP',
                     'null'    => TRUE,
-                    'default' => NULL,
+                    'default' => 'CURRENT_TIMESTAMP',
                 ],
             ])
             ->add_key('id', primary: TRUE)
-            ->add_key('username', unique: TRUE, name: 'username_unique')
-            ->add_key('email', name: 'email_idx')
-            ->add_key('role', name: 'role_idx')
-            ->create_table('users');
+            ->add_key('username', unique: TRUE)
+            ->create_table('userss');
     }
 
     public function down()
     {
-        $this->_lava->dbforge->drop_table('users');
+        $this->_lava->dbforge->drop_table('userss');
     }
 }

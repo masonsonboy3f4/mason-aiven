@@ -96,7 +96,10 @@ class Middleware
             throw new Exception("Middleware [$middleware] not registered.");
         }
 
-        return $this->map[$middleware]->handle($next);
+        $middleware_class = $this->map[$middleware];
+        $middleware_instance = load_class($middleware_class, 'middlewares');
+
+        return $middleware_instance->handle($next);
     }
 }
 

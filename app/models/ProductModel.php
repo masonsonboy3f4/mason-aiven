@@ -1,13 +1,12 @@
-
 <?php
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
-class UserModel extends Model
+class ProductModel extends Model
 {
-    protected $table = 'userss';
+    protected $table = 'products';
     protected $primary_key = 'id';
-    protected $fillable = [];
-    protected $guarded = ['id'];
+    protected $fillable = ['product_name', 'description', 'price', 'quantity'];
+    protected $guarded = ['id', 'created_at'];
 
     public function __construct()
     {

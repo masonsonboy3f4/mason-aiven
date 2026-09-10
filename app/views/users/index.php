@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>User Management Module</title>
+<link rel="stylesheet" href="<?= base_url('public/css/mint-turquoise.css') ?>">
 
 <style>
 *{
@@ -162,7 +163,7 @@ tbody tr:hover{
 }
 </style>
 </head>
-<body>
+<body class="users-page">
 
 <div class="container">
 
@@ -201,29 +202,37 @@ tbody tr:hover{
 
                     <?php foreach ($users as $user) : ?>
 
+                        <?php
+                        $user_id = is_object($user) ? ($user->id ?? '') : ($user['id'] ?? '');
+                        $firstname = is_object($user) ? ($user->firstname ?? '') : ($user['firstname'] ?? '');
+                        $lastname = is_object($user) ? ($user->lastname ?? '') : ($user['lastname'] ?? '');
+                        $email = is_object($user) ? ($user->email ?? '') : ($user['email'] ?? '');
+                        $username = is_object($user) ? ($user->username ?? '') : ($user['username'] ?? '');
+                        ?>
+
                         <tr>
 
                             <td>
                                 <span class="badge">
-                                    #<?= htmlspecialchars($user->id ?? $user['id']) ?>
+                                    #<?= htmlspecialchars($user_id) ?>
                                 </span>
                             </td>
 
                             <td>
-                                <?= htmlspecialchars($user->firstname ?? $user['firstname']) ?>
+                                <?= htmlspecialchars($firstname) ?>
                             </td>
 
                             <td>
-                                <?= htmlspecialchars($user->lastname ?? $user['lastname']) ?>
+                                <?= htmlspecialchars($lastname) ?>
                             </td>
 
                             <td>
-                                <?= htmlspecialchars($user->email ?? $user['email']) ?>
+                                <?= htmlspecialchars($email) ?>
                             </td>
 
                             <td>
                                 <span class="username">
-                                    @<?= htmlspecialchars($user->username ?? $user['username']) ?>
+                                    @<?= htmlspecialchars($username) ?>
                                 </span>
                             </td>
 

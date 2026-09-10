@@ -48,6 +48,10 @@ $router->get('/', 'Welcome::index');
 
 $router->get('/student', 'StudentController::index');
 
+$router->get('/login', 'UserController::login');
+$router->post('/login', 'UserController::authenticate');
+$router->get('/logout', 'UserController::logout');
+
 $router->get('/student/profile', 'StudentController::profile', [
     'middleware' => ['student']
 ]);
@@ -55,3 +59,10 @@ $router->get('/student/profile', 'StudentController::profile', [
 $router->get('/', 'Welcome::index');
 
 $router->get('/users', 'UserController::index');
+
+$router->get('/products', 'ProductController::index', ['middleware' => ['auth']]);
+$router->get('/products/create', 'ProductController::create', ['middleware' => ['auth']]);
+$router->post('/products/store', 'ProductController::store', ['middleware' => ['auth']]);
+$router->get('/products/edit/{id}', 'ProductController::edit', ['middleware' => ['auth']])->where_number('id');
+$router->post('/products/update/{id}', 'ProductController::update', ['middleware' => ['auth']])->where_number('id');
+$router->post('/products/delete/{id}', 'ProductController::delete', ['middleware' => ['auth']])->where_number('id');
