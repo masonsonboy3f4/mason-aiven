@@ -60,9 +60,9 @@ $router->get('/', 'Welcome::index');
 
 $router->get('/users', 'UserController::index');
 
-$router->get('/products', 'ProductController::index', ['middleware' => ['auth']]);
-$router->get('/products/create', 'ProductController::create', ['middleware' => ['auth']]);
-$router->post('/products/store', 'ProductController::store', ['middleware' => ['auth']]);
-$router->get('/products/edit/{id}', 'ProductController::edit', ['middleware' => ['auth']])->where_number('id');
-$router->post('/products/update/{id}', 'ProductController::update', ['middleware' => ['auth']])->where_number('id');
-$router->post('/products/delete/{id}', 'ProductController::delete', ['middleware' => ['auth']])->where_number('id');
+$router->get('/products', 'ProductController::index')->middleware('auth');
+$router->get('/products/create', 'ProductController::create')->middleware('auth');
+$router->post('/products/store', 'ProductController::store')->middleware('auth');
+$router->get('/products/edit/{id}', 'ProductController::edit')->where_number('id')->middleware('auth');
+$router->post('/products/update/{id}', 'ProductController::update')->where_number('id')->middleware('auth');
+$router->post('/products/delete/{id}', 'ProductController::delete')->where_number('id')->middleware('auth');
