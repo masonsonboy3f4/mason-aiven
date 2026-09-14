@@ -92,7 +92,7 @@ function product_value($product, $key, $default = '')
                                 <td class="product-index"><?= str_pad((string) (int) product_value($product, 'id'), 2, '0', STR_PAD_LEFT); ?></td>
                                 <td class="product-title fw-semibold"><?= htmlspecialchars(product_value($product, 'product_name'), ENT_QUOTES, 'UTF-8'); ?></td>
                                 <td class="text-secondary"><?= htmlspecialchars(product_value($product, 'description'), ENT_QUOTES, 'UTF-8'); ?></td>
-                                <td>$<?= number_format((float) product_value($product, 'price'), 2); ?></td>
+                                <td>₱<?= number_format((float) product_value($product, 'price'), 2); ?></td>
                                 <td><?= (int) product_value($product, 'quantity'); ?></td>
                                 <td><?= htmlspecialchars(product_value($product, 'created_at'), ENT_QUOTES, 'UTF-8'); ?></td>
                                 <td class="text-end text-nowrap">
