@@ -66,3 +66,18 @@ $router->post('/products/store', 'ProductController::store')->middleware('auth')
 $router->get('/products/edit/{id}', 'ProductController::edit')->where_number('id')->middleware('auth');
 $router->post('/products/update/{id}', 'ProductController::update')->where_number('id')->middleware('auth');
 $router->post('/products/delete/{id}', 'ProductController::delete')->where_number('id')->middleware('auth');
+
+$router->get('/api/products', 'ApiController::products');
+$router->post('/api/products', 'ApiController::create_product');
+$router->put('/api/products/{id}', 'ApiController::update_product')->where_number('id');
+$router->patch('/api/products/{id}', 'ApiController::update_product')->where_number('id');
+$router->delete('/api/products/{id}', 'ApiController::delete_product')->where_number('id');
+$router->post('/api/login', 'ApiController::login');
+$router->post('/api/logout', 'ApiController::logout');
+
+$router->post('/create-migration/{migration_class}', 'MigrationController::create_migration')->middleware('auth');
+$router->post('/migrate', 'MigrationController::migrate')->middleware('auth');
+$router->post('/rollback', 'MigrationController::rollback')->middleware('auth');
+$router->post('/rollback-all', 'MigrationController::rollback_all')->middleware('auth');
+$router->post('/refresh', 'MigrationController::refresh')->middleware('auth');
+$router->get('/status', 'MigrationController::status')->middleware('auth');
